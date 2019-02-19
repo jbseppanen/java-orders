@@ -8,7 +8,7 @@ public class Agents {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long agentCode;
 
     private String agentName, workingArea, phone, country;
     private double commission;
@@ -16,8 +16,8 @@ public class Agents {
     public Agents() {
     }
 
-    public long getId() {
-        return id;
+    public long getAgentCode() {
+        return agentCode;
     }
 
     public String getAgentName() {
