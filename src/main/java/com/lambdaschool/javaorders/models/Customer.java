@@ -16,8 +16,8 @@ public class Customer {
     private double openingAmt, receiveAmt, paymentAmt, outstandingAmt;
 
     @ManyToOne
-    @JoinColumn(name = "agentid", nullable = false)
-    private Agents agent;
+    @JoinColumn(name = "agentcode", nullable = false)
+    private Agents agentCode;
 
     public Customer() {
     }
@@ -106,11 +106,11 @@ public class Customer {
         this.outstandingAmt = outstandingAmt;
     }
 
-    public Agents getAgent() {
-        return agent;
+    public Agents getAgentCode() {
+        return agentCode;
     }
 
-    public void setAgent(Agents agent) {
-        this.agent = agent;
+    public void setAgentCode(Agents agentCode) {
+        this.agentCode = agentCode;
     }
 }
