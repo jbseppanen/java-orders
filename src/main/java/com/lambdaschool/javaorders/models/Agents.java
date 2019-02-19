@@ -1,62 +1,28 @@
 package com.lambdaschool.javaorders.models;
 
-import javax.persistence.*;
+import lombok.Data;
 
+import javax.persistence.*;
+import java.util.Set;
+
+@Data
 @Entity
 @Table(name = "agents")
 public class Agents {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long agentCode;
+    private long agentcode;
 
-    private String agentName, workingArea, phone, country;
+    private String agentname, workingarea, phone, country;
     private double commission;
 
+    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "agent")
+    private Set<Customer> customers;
+
+    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "agent")
+    private Set<Orders> orders;
+
     public Agents() {
-    }
-
-    public long getAgentCode() {
-        return agentCode;
-    }
-
-    public String getAgentName() {
-        return agentName;
-    }
-
-    public void setAgentName(String agentName) {
-        this.agentName = agentName;
-    }
-
-    public String getWorkingArea() {
-        return workingArea;
-    }
-
-    public void setWorkingArea(String workingArea) {
-        this.workingArea = workingArea;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public double getCommission() {
-        return commission;
-    }
-
-    public void setCommission(double commission) {
-        this.commission = commission;
     }
 }

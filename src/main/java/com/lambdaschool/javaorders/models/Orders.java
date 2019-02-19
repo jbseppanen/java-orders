@@ -1,70 +1,32 @@
 package com.lambdaschool.javaorders.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
+
 import javax.persistence.*;
 
+@Data
 @Entity
 @Table(name = "orders")
 public class Orders {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long ordNum;
+    private long ordnum;
 
-    private double ordAmount, advanceAmount;
+    private double ordamount, advanceamount;
 
     @ManyToOne
     @JoinColumn(name = "custcode", nullable = false)
-    private Agents custCode;
+    @JsonIgnore
+    private Customer customer;
 
     @ManyToOne
     @JoinColumn(name = "agentcode", nullable = false)
-    private Agents agentCode;
+    @JsonIgnore
+    private Agents agent;
 
-    private String ordDescription;
+    private String orddescription;
 
     public Orders() {
-    }
-
-    public long getOrdNum() {
-        return ordNum;
-    }
-
-    public double getOrdAmount() {
-        return ordAmount;
-    }
-
-    public void setOrdAmount(double ordAmount) {
-        this.ordAmount = ordAmount;
-    }
-
-    public double getAdvanceAmount() {
-        return advanceAmount;
-    }
-
-    public void setAdvanceAmount(double advanceAmount) {
-        this.advanceAmount = advanceAmount;
-    }
-
-    public Agents getCustCode() {
-        return custCode;
-    }
-
-    public void setCustCode(Agents custCode) {
-        this.custCode = custCode;
-    }
-
-    public Agents getAgentCode() {
-        return agentCode;
-    }
-
-    public void setAgentCode(Agents agentCode) {
-        this.agentCode = agentCode;
-    }
-
-    public String getOrdDescription() {
-        return ordDescription;
-    }
-
-    public void setOrdDescription(String ordDescription) {
-        this.ordDescription = ordDescription;
     }
 }
