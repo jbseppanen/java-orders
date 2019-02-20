@@ -30,14 +30,14 @@ The table layouts are as follows
   * PAYMENTAMT double
   * OUTSTANDINGAMT double
   * PHONE String
-  * AGENTCODE Long foreign key (one agent to many customers) not null
+  * AGENTCODE Long foreign key (one agentcode to many customers) not null
 
 * ORDERS
   * ORDNUM primary key, not null Long
   * ORDAMOUNT double
   * ADVANCEAMOUNT double
   * CUSTCODE Long foreign key (one customer to many orders) not null
-  * AGENTCODE Long foreign key (one agent to many orders) not null
+  * AGENTCODE Long foreign key (one agentcode to many orders) not null
   * ORDDESCRIPTION
 
 
@@ -56,5 +56,5 @@ Expose the following end points
 * /agents - Returns all agents with their customers
 * /agents/orders - Return a list with the agents name and associated order number and order description
 * /customer/{custcode} - Deletes a customer based off of their custcode and deletes all their associated orders
-* /agents/{agentcode} - Deletes an agent if they are not assigned to a customer or order (Stretch Goal)
+* /agents/{agentcode} - Deletes an agentcode if they are not assigned to a customer or order (Stretch Goal)
 
