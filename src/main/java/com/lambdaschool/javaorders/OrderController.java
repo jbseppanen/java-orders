@@ -1,6 +1,5 @@
 package com.lambdaschool.javaorders;
 
-import com.lambdaschool.javaorders.models.Agents;
 import com.lambdaschool.javaorders.models.Orders;
 import com.lambdaschool.javaorders.repository.AgentsRepository;
 import com.lambdaschool.javaorders.repository.CustomerRepository;
