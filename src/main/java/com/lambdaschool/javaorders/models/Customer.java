@@ -26,7 +26,7 @@ public class Customer {
     private Agents agent;
 
     @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "customer")
-    @JsonIgnore
+//    @JsonIgnore
     private Set<Orders> orders;
 
     public Customer() {
